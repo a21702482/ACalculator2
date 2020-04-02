@@ -16,14 +16,14 @@ class HistoryActivity : AppCompatActivity() {
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.history_activity)
-        /*val operations = intent.getParcelableArrayListExtra<Operation>(EXTRA)
-        lista_historico?.adapter = HistoryAdapter(this, R.layout.item_expression, operations)*/
+        val operations = intent.getParcelableArrayListExtra<Operation>(EXTRA)
         lista_historico?.layoutManager = LinearLayoutManager(this)
-        lista_historico?.adapter = HistoryAdapter(this, R.layout.item_expression, lista)
+        lista_historico?.adapter = HistoryAdapter(this, R.layout.item_expression, operations)
 
         fun onClickHistorico() {}
         button_back.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putParcelableArrayListExtra(EXTRA,operations)
             startActivity(intent)
             finish()
         }

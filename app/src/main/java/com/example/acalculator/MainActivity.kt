@@ -19,12 +19,14 @@ import kotlinx.android.synthetic.main.item_expression.view.*
 import net.objecthunter.exp4j.ExpressionBuilder
 
 
-var lista = ArrayList<Operation>()
 class MainActivity : AppCompatActivity() {
 
     private val TAG = MainActivity::class.java.simpleName
     private var ultimo = ""
     private val VISOR_KEY = "visor"
+    private val EXTRA = "texto"
+    var lista = ArrayList<Operation>()
+
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         text_visor.text = savedInstanceState?.getString(VISOR_KEY)
@@ -41,16 +43,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.i(TAG, "o metodo onCreate foi invocado")
         setContentView(R.layout.activity_main)
+        if(intent.getParcelableArrayListExtra<Operation>(EXTRA)!=null)
+        {
+            lista = intent.getParcelableArrayListExtra<Operation>(EXTRA)
+        }
         list_historic?.layoutManager = LinearLayoutManager(this)
-        list_historic?.adapter = HistoryAdapter(this, R.layout.item_expression, lista )
+        list_historic?.adapter = HistoryAdapter(this, R.layout.item_expression,lista)
     }
 
         fun onClickHistorico(view: View) {
-            /*val intent = Intent(this, HistoryActivity::class.java)
-            intent.apply { putParcelableArrayListExtra(EXTRA, ArrayList(operations))}
-            startActvity(intent)*/
-            startActivity(Intent(this, HistoryActivity::class.java))
-
+            val intent = Intent(this, HistoryActivity::class.java)
+            intent.putParcelableArrayListExtra(EXTRA,lista)
+            startActivity(intent)
             finish()
         }
         fun onClickDeleteAll(view: View) {
@@ -105,7 +109,7 @@ class HistoryAdapter(private val context: Context, private val layout: Int, priv
         holder.expression.text = items[position].expression
         holder.resultado.text = items[position].resultado.toString()
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, "Resutaldo do item "+position+" é " + lista[position].resultado,Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Resutaldo do item "+position+" é " + items[position].resultado,Toast.LENGTH_SHORT).show()
         }
     }
 
