@@ -3,6 +3,7 @@ package com.example.acalculator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_expression.view.*
 import net.objecthunter.exp4j.ExpressionBuilder
@@ -40,11 +42,15 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG, "o metodo onCreate foi invocado")
         setContentView(R.layout.activity_main)
         list_historic?.layoutManager = LinearLayoutManager(this)
-        list_historic?.adapter = HistoryAdapter(this, R.layout.item_expression, lista)
+        list_historic?.adapter = HistoryAdapter(this, R.layout.item_expression, lista )
     }
 
         fun onClickHistorico(view: View) {
+            /*val intent = Intent(this, HistoryActivity::class.java)
+            intent.apply { putParcelableArrayListExtra(EXTRA, ArrayList(operations))}
+            startActvity(intent)*/
             startActivity(Intent(this, HistoryActivity::class.java))
+
             finish()
         }
         fun onClickDeleteAll(view: View) {
@@ -81,6 +87,7 @@ class MainActivity : AppCompatActivity() {
             lista.add(Operation(expressao, resultado.toDouble()))
             list_historic?.layoutManager = LinearLayoutManager(this)
             list_historic?.adapter = HistoryAdapter(this, R.layout.item_expression, lista)
+            //falta qualquer coisa
 
         }
 }
@@ -105,6 +112,7 @@ class HistoryAdapter(private val context: Context, private val layout: Int, priv
     override fun getItemCount() = items.size
 
 }
-class Operation(var expression : String,var resultado : Double)
+@Parcelize
+class Operation(var expression : String,var resultado : Double) : Parcelable
 
 
