@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".CalculatorFragment">
-
     <TextView
         android:id="@+id/text_visor"
         android:layout_width="match_parent"
@@ -37,7 +35,6 @@
                     android:textSize="25sp"
                     android:background="@color/medium_gray"
                     android:textColor="#ffffff"
-                    android:onClick="onClickDeleteAll"
                     android:text="CE"
                     >
                 </Button>
@@ -49,7 +46,6 @@
                     android:textSize="25sp"
                     android:background="@color/medium_gray"
                     android:textColor="#ffffff"
-                    android:onClick="onClickDelLastCharacter"
                     android:text="&lt;">
                 </Button>
                 <Button
@@ -60,7 +56,6 @@
                     android:background="@color/orange"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickHistorico"
                     android:text="H">
                 </Button>
 
@@ -72,7 +67,6 @@
                     android:background="@color/orange"
                     android:text="/"
                     android:textColor="#ffffff"
-                    android:onClick="onClickSymbol"
                     android:tag="/"
                     android:textSize="25sp">
 
@@ -87,7 +81,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="7"
                     android:text="7">
                 </Button>
@@ -99,7 +92,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="8"
                     android:text="8">
 
@@ -113,7 +105,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="9"
                     android:text="9">
                 </Button>
@@ -126,7 +117,6 @@
                     android:background="@color/orange"
                     android:textColor="#ffffff"
                     android:text="*"
-                    android:onClick="onClickSymbol"
                     android:tag="*"
                     android:textSize="25sp"
                     >
@@ -144,7 +134,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="4"
                     android:text="4">
 
@@ -158,7 +147,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="5"
                     android:text="5">
 
@@ -172,7 +160,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="6"
                     android:text="6">
 
@@ -186,7 +173,6 @@
                     android:background="@color/orange"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="-"
                     android:text="-">
                 </Button>
@@ -200,7 +186,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="1"
                     android:text="1">
                 </Button>
@@ -212,7 +197,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="2"
                     android:text="2">
                 </Button>
@@ -224,7 +208,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="3"
                     android:text="3">
                 </Button>
@@ -235,7 +218,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
                     android:background="@color/orange"
-                    android:onClick="onClickSymbol"
                     android:textColor="#ffffff"
                     android:tag="+"
                     android:text="+">
@@ -251,7 +233,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="0"
                     android:text="0">
                 </Button>
@@ -263,7 +244,6 @@
                     android:background="@color/gray"
                     android:textColor="#ffffff"
                     android:textSize="25sp"
-                    android:onClick="onClickSymbol"
                     android:tag="."
                     android:text=".">
                 </Button>
@@ -275,10 +255,9 @@
                     android:textSize="25sp"
                     android:background="@color/orange"
                     android:textColor="#ffffff"
-                    android:onClick="onClickEquals"
                     android:text="=">
                 </Button>
             </TableRow>
         </TableLayout>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

@@ -15,17 +15,7 @@ class HistoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.history_activity)
-        val operations = intent.getParcelableArrayListExtra<Operation>(EXTRA)
-        lista_historico?.layoutManager = LinearLayoutManager(this)
-        lista_historico?.adapter = HistoryAdapter(this, R.layout.item_expression, operations)
-
-        fun onClickHistorico() {}
-        button_back.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putParcelableArrayListExtra(EXTRA,operations)
-            startActivity(intent)
-            finish()
-        }
+        setContentView(R.layout.activity_main)
+        NavigationManager.goToHistoryFragment(supportFragmentManager)
     }
 }
