@@ -10,12 +10,9 @@ import kotlinx.android.synthetic.main.history_activity.*
 
 class HistoryActivity : AppCompatActivity() {
 
-    private val EXTRA = "texto"
-
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        NavigationManager.goToHistoryFragment(supportFragmentManager)
     }
 }

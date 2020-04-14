@@ -12,8 +12,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="teste"
-        android:id="@+id/txt_username_login"/>
+        android:id="@+id/txt_username"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,19 +22,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:text="teste"
-        android:id="@+id/txt_pwd_login"/>
+        android:id="@+id/txt_pwd"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comfirmar Password:"
+        android:textSize="20dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/txt_pwd2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textSize="20dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:id="@+id/txt_email"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:textAllCaps="false"
-        android:id="@+id/btn_Login"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register for new account"
-        android:textAllCaps="false"
-        android:onClick="registo"
-        android:id="@+id/btn_Register"/>
+        android:text="registar"
+        android:id="@+id/btn_Register_registo"
+        android:textAllCaps="false"/>
 </LinearLayout>

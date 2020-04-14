@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import butterknife.Optional
@@ -21,27 +23,42 @@ import kotlinx.android.synthetic.main.history_activity.*
 class HistoryFragment : Fragment() {
 
     private val EXTRA = "texto"
-    private var operations = ArrayList<Operation>()
+
+    private var ajudaAdapter: HistoryAdapter? = null
+    private var layout: RecyclerView? = null
+    private lateinit var viewModel: CalculatorViewModel
+    private var operations : List<Operation> = ArrayList()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        arguments?.let {
+        /*arguments?.let {
             operations = it.getParcelableArrayList(EXTRA)
-        }
+        }*/
         val view = inflater?.inflate(R.layout.fragment_history, container, false)
-        lista_historico?.layoutManager = LinearLayoutManager(activity as Context)
-        lista_historico?.adapter = HistoryAdapter(activity as Context, R.layout.item_expression, operations)
+        viewModel = ViewModelProviders.of(this).get(CalculatorViewModel::class.java)
+        ButterKnife.bind(this, view)
+
+        operations = viewModel.showAllOperations()
+        ajudaAdapter = HistoryAdapter(context!!,R.layout.item_expression, operations)
+
+        val tentativa = LinearLayoutManager(this.context)
+        layout = view?.findViewById(R.id.lista_historico)
+        layout?.layoutManager = tentativa
+        layout?.adapter = ajudaAdapter
+
+
         return view
     }
+
+    /*override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }*/
     @Optional
     @OnClick(R.id.button_back)
     fun OnClickBack(view: View)
     {
-        /*val intent = Intent(this, MainActivity::class.java)
-        intent.putParcelableArrayListExtra(EXTRA, operations)
-        startActivity(intent)
-        finish()*/
+        NavigationManager.goToCalculatorFragment(this.fragmentManager!!)
     }
 }
 
