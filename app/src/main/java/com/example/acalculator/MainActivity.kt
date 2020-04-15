@@ -47,7 +47,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         setupDrawerMenu()
-        NavigationManager.goToCalculatorFragment(supportFragmentManager)
+        if(!screenRotated(savedInstanceState)){
+            NavigationManager.goToCalculatorFragment(supportFragmentManager)
+        }
+    }
+    private fun screenRotated(savedInstanceState: Bundle?):Boolean{
+        return savedInstanceState!=null
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
