@@ -12,7 +12,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="teste"
+        android:text="cm@ulusofona.pt"
         android:id="@+id/txt_username_login"/>
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:text="teste"
+        android:text="cm"
         android:id="@+id/txt_pwd_login"/>
     <Button
         android:layout_width="match_parent"
